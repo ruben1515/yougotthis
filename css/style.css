@@ -1,55 +1,56 @@
-body{
+body {
     display: flex;               /* Enable flexbox on the body */
-    justify-content: center;     /* Center content horizontally */
-    align-items: center;         /* Optionally center content vertically */
-    height: 100vh;               /* Ensure the body takes up the full height of the viewport */
+    flex-direction: column;      /* Stack header, content, and footer vertically */
+    justify-content: space-between; /* Push footer to the bottom while allowing centering */
+    height: 100vh;               /* Full viewport height */
     width: 100vw;
     margin: 0;                   /* Remove default margin */
     padding: 0;
     font-family: Arial, sans-serif;
-    flex-direction: column;
     background-color: #000000;
     background-image: url("../img/background2-1.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
-
 }
 
-.page-header{}
+.page-header {}
 
-.header-content{
+.header-content {
     color: #ff000c;
 }
 
-.header-content--hidden{
+.header-content--hidden {
     visibility: hidden;
 }
 
-.main-content{
-    flex: 1; /* This takes up available space, pushing the footer to the bottom */
+.main-content {
+    display: flex;               /* Enable Flexbox */
+    flex-direction: column;      /* Stack inner content vertically */
+    justify-content: center;     /* Center vertically */
+    align-items: center;         /* Center horizontally */
     padding: 20px;
-    background-color: rgba(222, 184, 135, 0);
+    flex: 1;                     /* Take up remaining vertical space */
 }
 
-.main-content-inner{
-    background-color: darkorange;
+.main-content-inner {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 40px;
+    padding: 20px;
 }
 
-.main-content .title{
+.main-content .title {
     text-align: left;
 }
-.main-content .message{
-     text-align: left;
-}
 
-.main-default{
-    background-color: aquamarine;
-}
-
-.main-content .message{
+.main-content .message {
+    text-align: left;
     width: 800px;
     word-wrap: break-word;
+}
+
+.main-default {
+    background-color: aquamarine;
 }
 
 .button-heart {
@@ -78,6 +79,9 @@ body{
 }
 
 footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;   /* Center items horizontally */
