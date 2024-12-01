@@ -8,7 +8,7 @@ body{
     padding: 0;
     font-family: Arial, sans-serif;
     flex-direction: column;
-    background-color: darksalmon;
+    background-color: #000000;
     background-image: url("../img/background2-1.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -78,18 +78,28 @@ body{
 }
 
 footer{
+    display: flex;
     background-color: rgba(0,0,0,0.5);
-    width: inherit;
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    align-content: center;
+}
+footer img{
+    display: block;
+    width: 100%;
+    max-width: 200px; /*actual image width*/
+    height: auto; /* maintain aspect ratio*/
+    padding: 10px 0px 0px 0px;
+    margin-left: auto; /*optional centering of image*/
+    margin-right: auto; /*optional centering of image*/
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 footer p{
-    display: inline-block;
     margin: 0;
-    padding: 10px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
     color: white;
-
+    text-align: center;
 }
