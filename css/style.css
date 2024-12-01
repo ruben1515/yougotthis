@@ -9,7 +9,7 @@ body{
     font-family: Arial, sans-serif;
     flex-direction: column;
     background-color: darksalmon;
-    background-image: url("/img/background2-1.jpg");
+    background-image: url("./img/background2-1.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
@@ -89,7 +89,7 @@ footer{
 footer p{
     display: inline-block;
     margin: 0;
-    padding: 10px 0 10px 0;
+    padding: 10px 0px 10px 0px;
     color: white;
 
 }
