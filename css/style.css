@@ -1,108 +1,85 @@
+/* General Styles */
 body {
-    display: flex;               /* Enable flexbox on the body */
-    flex-direction: column;      /* Stack header, content, and footer vertically */
-    justify-content: space-between; /* Push footer to the bottom while allowing centering */
-    height: 100vh;               /* Full viewport height */
-    width: 100vw;
-    margin: 0;                   /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between header, content, and footer */
+    height: 100vh; /* Full viewport height */
+    margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #000000;
-    background-image: url("../img/background2-1.jpg");
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background: #000000 url("../img/background2-3.jpg") center no-repeat;
+    background-size: cover;
 }
 
-.page-header {}
-
-.header-content {
-    color: #ff000c;
-}
-
-.header-content--hidden {
-    visibility: hidden;
-}
-
+/* Main Content */
 .main-content {
-    display: flex;               /* Enable Flexbox */
-    flex-direction: column;      /* Stack inner content vertically */
-    justify-content: center;     /* Center vertically */
-    align-items: center;         /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    flex: 1;                     /* Take up remaining vertical space */
+    flex: 1; /* Take up remaining space between header and footer */
 }
 
 .main-content-inner {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 40px;
     padding: 20px;
+    text-align: center;
 }
 
 .main-content .title {
     text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .main-content .message {
     text-align: left;
     width: 800px;
     word-wrap: break-word;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.main-default {
-    background-color: aquamarine;
-}
-
+/* Heart Button */
 .button-heart {
-    position: relative;
     font-size: 50px;
     width: 100px;
     height: 100px;
-    background-color: rgba(255, 56, 96, 0); /* Red color */
+    background-color: transparent;
     border: none;
-    border-radius: 50%; /* Creates the top round parts of the heart */
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-.button-heart:hover {
-    position: relative;
-    font-size: 50px;
-    width: 100px;
-    height: 100px;
-    background-color: #ff3860; /* Red color */
-    border: none;
-    border-radius: 50%; /* Creates the top round parts of the heart */
+    border-radius: 50%;
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s ease;
 }
 
-footer{
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+.button-heart:hover {
+    background-color: #ff3860; /* Heart turns red on hover */
+}
+
+/* Footer */
+footer {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;   /* Center items horizontally */
-    text-align: center;    /* Center text */
-    background-color: rgba(0,0,0,0.5);
-    padding: 20px 0 20px 0;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     width: 100%;
+    text-align: center;
+    color: #fff;
 }
 
 footer img {
-    width: 60%; /* Image width tied to its container */
-    max-width: 300px; /* Adjust this to control overall scaling */
+    width: 60%;
+    max-width: 300px; /* Controls max image size */
     height: auto;
-    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 footer p {
-    width: 100%; /* Match text width to image container */
-    max-width: 300px; /* Same max-width as the image */
-    text-align: center;
     font-size: 14px;
-    color: #ffffff;
-    margin: 10px 0 0;
+    margin: 0;
 }
