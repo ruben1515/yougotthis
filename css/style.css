@@ -1,10 +1,95 @@
-body{}
+body{
+    display: flex;               /* Enable flexbox on the body */
+    justify-content: center;     /* Center content horizontally */
+    align-items: center;         /* Optionally center content vertically */
+    height: 100vh;               /* Ensure the body takes up the full height of the viewport */
+    width: 100vw;
+    margin: 0;                   /* Remove default margin */
+    padding: 0;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    background-color: darksalmon;
+    background-image: url("../img/background2-1.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+
+}
+
 .page-header{}
 
-.page-content{}
+.header-content{
+    color: #ff000c;
+}
 
-.test{
+.header-content--hidden{
     visibility: hidden;
 }
 
-footer{}
+.main-content{
+    flex: 1; /* This takes up available space, pushing the footer to the bottom */
+    padding: 20px;
+    background-color: rgba(222, 184, 135, 0);
+}
+
+.main-content-inner{
+    background-color: darkorange;
+}
+
+.main-content .title{
+    text-align: left;
+}
+.main-content .message{
+     text-align: left;
+}
+
+.main-default{
+    background-color: aquamarine;
+}
+
+.main-content .message{
+    width: 800px;
+    word-wrap: break-word;
+}
+
+.button-heart {
+    position: relative;
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 56, 96, 0); /* Red color */
+    border: none;
+    border-radius: 50%; /* Creates the top round parts of the heart */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+.button-heart:hover {
+    position: relative;
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: #ff3860; /* Red color */
+    border: none;
+    border-radius: 50%; /* Creates the top round parts of the heart */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+footer{
+    background-color: rgba(0,0,0,0.5);
+    width: inherit;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+footer p{
+    display: inline-block;
+    margin: 0;
+    padding: 10px 0 10px 0;
+    color: white;
+
+}
