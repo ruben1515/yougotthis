@@ -79,32 +79,26 @@ body{
 
 footer{
     display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;   /* Center items horizontally */
+    text-align: center;    /* Center text */
     background-color: rgba(0,0,0,0.5);
+    padding: 20px 0 20px 0;
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
 }
 
-footer container{
-    width: 10%;
-    background-color: darkorange;
+footer img {
+    width: 60%; /* Image width tied to its container */
+    max-width: 300px; /* Adjust this to control overall scaling */
+    height: auto;
+    padding-bottom: 0px;
 }
 
-footer img{
-    display: block;
-    width: auto; /*actual image width*/
-    max-height: 50px; /* maintain aspect ratio*/
-    padding: 10px 0px 0px 0px;
-    margin-left: auto; /*optional centering of image*/
-    margin-right: auto; /*optional centering of image*/
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-footer p{
-    margin: 0;
-    padding: 0px 0px 10px 0px;
-    color: white;
+footer p {
+    width: 100%; /* Match text width to image container */
+    max-width: 300px; /* Same max-width as the image */
     text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    margin: 10px 0 0;
 }
