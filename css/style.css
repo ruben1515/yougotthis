@@ -86,11 +86,16 @@ footer{
     align-items: center;
     align-content: center;
 }
+
+footer container{
+    width: 10%;
+    background-color: darkorange;
+}
+
 footer img{
     display: block;
-    width: 100%;
-    max-width: 200px; /*actual image width*/
-    height: auto; /* maintain aspect ratio*/
+    width: auto; /*actual image width*/
+    max-height: 50px; /* maintain aspect ratio*/
     padding: 10px 0px 0px 0px;
     margin-left: auto; /*optional centering of image*/
     margin-right: auto; /*optional centering of image*/
