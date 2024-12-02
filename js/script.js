@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const pink_heart = document.getElementById("heart-pink");
+    const red_heart = document.getElementById("heart-red");
     const button = document.getElementById("cat-button");
     const overlay = document.getElementById("overlay");
     const mainContent = document.querySelector(".main-content");

@@ -68,7 +68,6 @@ img {
 
 #cat-button.breathing{
     background-color: transparent;
-    background-image: url("../img/heart.png");
     background-size: cover; /* Make the image cover the entire button */
     background-position: center; /* Center the image inside the button */
     border: none;
@@ -77,10 +76,25 @@ img {
     animation: resize 2s infinite ease-in-out; /* Apply the animation */
     transition: background-image 0.2s ease; /* Optional: Add a transition effect for hover */
 }
-#cat-button.expanded{
+
+#cat-button.expanded .bottom-image{
     will-change: transform;
     background-color: transparent;
-    background-image: url("../img/heart.png");
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 999; /* Bring the button to the front */
+    -webkit-animation: growAndFade 4s forwards; /* Safari and older Android */
+    animation: growAndFade 4s forwards;
+    pointer-events: none; /* Ensure no interaction during fade-out */
+}
+
+#cat-button.expanded .top-image{
+    will-change: transform;
+    background-color: transparent;
     background-size: cover; /* Make the image cover the entire button */
     background-position: center; /* Center the image inside the button */
     border: none;
@@ -88,13 +102,25 @@ img {
     outline: none;
     position: relative;
     z-index: 1000; /* Bring the button to the front */
-    -webkit-animation: growAndFade 4s forwards; /* Safari and older Android */
-    animation: growAndFade 4s forwards;
+    -webkit-animation: growAndFadeSmall 4s forwards; /* Safari and older Android */
+    animation: growAndFadeSmall 4s forwards;
     pointer-events: none; /* Ensure no interaction during fade-out */
 }
 
-#cat-button.breathing:hover{
-    background-image: url("../img/heart-alt.png");
+#cat-button.expanded .replacement-image{
+    will-change: transform;
+    background-color: transparent;
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 900; /* Bring the button to the front */
+    -webkit-animation: growAndFadeSmall 4s forwards; /* Safari and older Android */
+    animation: growAndFadeSmall 4s forwards;
+    pointer-events: none; /* Ensure no interaction during fade-out */
+    display: none;
 }
 
 /* Keyframes to animate the size change */
@@ -110,20 +136,56 @@ img {
     }
 }
 
+@keyframes growAndFadeSmall {
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(5); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(5); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(5); /* Return to original size */
+         opacity: 0; /* fade out */
+    }
+}
+/* Add vendor prefixes */
+@-webkit-keyframes growAndFadeSmall { /* For Webkit-based browsers (iOS, older Android) */
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(5); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(5); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(5); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+
 @keyframes growAndFade {
     0% {
         transform: scale(1); /* Original size */
         opacity: 100; /* fade out */
     }
     25% {
-        transform: scale(50); /* Increase size by 1.5x */
+        transform: scale(30); /* Increase size by 1.5x */
         opacity: 100; /* fade out */
     }
     75% {
-        transform: scale(50); /* Return to original size */
+        transform: scale(30); /* Return to original size */
         opacity: 100; /* fade out */
     }100% {
-         transform: scale(50); /* Return to original size */
+         transform: scale(30); /* Return to original size */
          opacity: 0; /* fade out */
     }
 }
@@ -134,14 +196,14 @@ img {
         opacity: 100; /* fade out */
     }
     25% {
-        transform: scale(50); /* Increase size by 1.5x */
+        transform: scale(30); /* Increase size by 1.5x */
         opacity: 100; /* fade out */
     }
     75% {
-        transform: scale(50); /* Return to original size */
+        transform: scale(30); /* Return to original size */
         opacity: 100; /* fade out */
     }100% {
-         transform: scale(50); /* Return to original size */
+         transform: scale(30); /* Return to original size */
          opacity: 0; /* fade out */
      }
 }
@@ -153,6 +215,45 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.stacked-button {
+    position: relative;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.stacked-button:hover .bottom-image{
+    opacity: 0;
+}
+
+.stacked-button:hover .replacement-image{
+    opacity: 1;
+}
+
+.stacked-button img {
+    display: block;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.stacked-button .top-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Ensures it stays on top */
+}
+
+.stacked-button .bottom-image {
+    position: absolute;
+    z-index: 1; /* Ensures it stays behind */
+}
+
+.stacked-button .replacement-image {
+    z-index: 0; /* Ensures it stays behind */
 }
 
 #overlay {
