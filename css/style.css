@@ -57,15 +57,31 @@ body {
 }
 
 #cat-button{
-    background-color: rgba(255,255,255,1);
+    background-color: transparent;
+    background-image: url("../img/heart.png");
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
     border: none;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    cursor: pointer;
+    outline: none;
+    animation: resize 2s infinite ease-in-out; /* Apply the animation */
+    transition: background-image 0.2s ease; /* Optional: Add a transition effect for hover */
+}
+#cat-button:hover{
+    background-image: url("../img/heart-alt.png");
 }
 
-#cat-button:hover{
-    background-color: rgba(255,147,210,1);
+/* Keyframes to animate the size change */
+@keyframes resize {
+    0% {
+        transform: scale(1); /* Original size */
+    }
+    50% {
+        transform: scale(1.1); /* Increase size by 1.5x */
+    }
+    100% {
+        transform: scale(1); /* Return to original size */
+    }
 }
 
 .cat-image {
