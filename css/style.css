@@ -177,11 +177,15 @@ img {
         transform: scale(1); /* Original size */
         opacity: 100; /* fade out */
     }
+    25% {
+        transform: scale(30); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
     75% {
-        transform: scale(90); /* Return to original size */
+        transform: scale(30); /* Return to original size */
         opacity: 100; /* fade out */
     }100% {
-         transform: scale(90); /* Return to original size */
+         transform: scale(30); /* Return to original size */
          opacity: 0; /* fade out */
     }
 }
@@ -191,11 +195,15 @@ img {
         transform: scale(1); /* Original size */
         opacity: 100; /* fade out */
     }
+    25% {
+        transform: scale(30); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
     75% {
-        transform: scale(90); /* Return to original size */
+        transform: scale(30); /* Return to original size */
         opacity: 100; /* fade out */
     }100% {
-         transform: scale(90); /* Return to original size */
+         transform: scale(30); /* Return to original size */
          opacity: 0; /* fade out */
      }
 }
