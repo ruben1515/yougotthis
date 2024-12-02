@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add the animation class to the cloned button
         clonedButton.classList.add("expanded");
+        clonedButton.classList.remove("breathing");
 
         setTimeout(() => {
             mainContent.innerHTML = ""; // Clear existing content

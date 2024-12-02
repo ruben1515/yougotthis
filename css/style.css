@@ -66,6 +66,11 @@ img {
     font-size: 26px;
 }
 
+#cat-button.expanded{
+    -webkit-animation: growAndFadeMult 4s forwards; /* Safari and older Android */
+    animation: growAndFadeMult 4s forwards;
+}
+
 #cat-button.breathing{
     background-color: transparent;
     background-size: cover; /* Make the image cover the entire button */
@@ -142,14 +147,14 @@ img {
         opacity: 100; /* fade out */
     }
     25% {
-        transform: scale(5); /* Increase size by 1.5x */
+        transform: scale(2); /* Increase size by 1.5x */
         opacity: 100; /* fade out */
     }
     75% {
-        transform: scale(5); /* Return to original size */
+        transform: scale(2); /* Return to original size */
         opacity: 100; /* fade out */
     }100% {
-         transform: scale(5); /* Return to original size */
+         transform: scale(2); /* Return to original size */
          opacity: 0; /* fade out */
     }
 }
@@ -160,14 +165,50 @@ img {
         opacity: 100; /* fade out */
     }
     25% {
-        transform: scale(5); /* Increase size by 1.5x */
+        transform: scale(2); /* Increase size by 1.5x */
         opacity: 100; /* fade out */
     }
     75% {
-        transform: scale(5); /* Return to original size */
+        transform: scale(2); /* Return to original size */
         opacity: 100; /* fade out */
     }100% {
-         transform: scale(5); /* Return to original size */
+         transform: scale(2); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+
+@keyframes growAndFadeMult {
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(2); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(2); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(2); /* Return to original size */
+         opacity: 0; /* fade out */
+    }
+}
+/* Add vendor prefixes */
+@-webkit-keyframes growAndFadeMult { /* For Webkit-based browsers (iOS, older Android) */
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(2); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(2); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(2); /* Return to original size */
          opacity: 0; /* fade out */
      }
 }
