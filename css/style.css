@@ -11,6 +11,7 @@ body {
     background: #000000 url("../img/background2-3.jpg") center no-repeat;
     background-size: cover;
     overflow: hidden; /* Prevent scrollbars */
+    color: white;
 }
 
 /* Main Content */
@@ -37,7 +38,7 @@ body {
 }
 
 .main-content .title {
-    text-align: left;
+    text-align: center;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -46,27 +47,38 @@ body {
 .main-content .message {
     text-align: left;
     width: 100%; /* Adjust to fit within container */
-    max-width: 800px; /* Prevent horizontal overflow */
     word-wrap: break-word;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-/* Heart Button */
-.button-heart {
-    font-size: 50px;
-    width: 100px;
-    height: 100px;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
+.message .text-centered{
+    text-align: center;
 }
 
-.button-heart:hover {
-    background-color: #ff3860; /* Heart turns red on hover */
+#cat-button{
+    background-color: rgba(255,255,255,1);
+    border: none;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+#cat-button:hover{
+    background-color: rgba(255,147,210,1);
+}
+
+.cat-image {
+    width: 80px; /* Adjust to make the cat image smaller */
+    height: auto;
+    margin-top: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cat-image:hover{
+
 }
 
 /* Footer */
