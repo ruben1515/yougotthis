@@ -4,11 +4,13 @@ body {
     flex-direction: column;
     justify-content: space-between; /* Space between header, content, and footer */
     height: 100vh; /* Full viewport height */
+    width: 100vw;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background: #000000 url("../img/background2-3.jpg") center no-repeat;
     background-size: cover;
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 /* Main Content */
