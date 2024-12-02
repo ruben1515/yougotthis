@@ -18,6 +18,9 @@ body {
     font-size: 20px;
 }
 
+img {
+    pointer-events: none;
+}
 
 /* Main Content */
 .main-content {
@@ -63,7 +66,7 @@ body {
     font-size: 26px;
 }
 
-#cat-button{
+#cat-button.breathing{
     background-color: transparent;
     background-image: url("../img/heart.png");
     background-size: cover; /* Make the image cover the entire button */
@@ -74,7 +77,21 @@ body {
     animation: resize 2s infinite ease-in-out; /* Apply the animation */
     transition: background-image 0.2s ease; /* Optional: Add a transition effect for hover */
 }
-#cat-button:hover{
+#cat-button.expanded{
+    background-color: transparent;
+    background-image: url("../img/heart.png");
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 1000; /* Bring the button to the front */
+    animation: growAndFade 4s forwards;
+    pointer-events: none; /* Ensure no interaction during fade-out */
+}
+
+#cat-button.breathing:hover{
     background-image: url("../img/heart-alt.png");
 }
 
@@ -91,6 +108,24 @@ body {
     }
 }
 
+@keyframes growAndFade {
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(50); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(50); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(50); /* Return to original size */
+         opacity: 0; /* fade out */
+    }
+}
+
 .cat-image {
     width: 80px; /* Adjust to make the cat image smaller */
     height: auto;
@@ -98,6 +133,20 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent; /* No background so it's invisible */
+    z-index: 1000; /* Ensure it is above everything */
+    pointer-events: none; /* Prevent interaction with the overlay itself */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Footer */
@@ -125,4 +174,6 @@ footer img {
 footer p {
     font-size: 18px;
     margin: 0;
+    position: relative; /* Ensure footer stays part of the stacking context */
+    z-index: 1; /* Lower than the button's z-index */
 }
