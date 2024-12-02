@@ -10,7 +10,7 @@ body {
     /*font-family: Arial, sans-serif;*/
     background: #000000 url("../img/background2-3.jpg") center no-repeat;
     background-size: cover;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: auto; /* Prevent scrollbars */
     color: white;
     font-family: "Gamja Flower", sans-serif;
     font-weight: 400;
@@ -30,6 +30,7 @@ img {
     align-items: center;
     padding: 20px;
     flex: 1; /* Take up remaining space between header and footer */
+    max-height: calc(100vh - 100px);
     box-sizing: border-box; /* Include padding in width/height calculations */
     max-width: 100%; /* Prevent content overflow horizontally */
     overflow: hidden; /* Ensure content stays within boundaries */
