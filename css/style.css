@@ -7,12 +7,17 @@ body {
     width: 100%; /* Ensure no horizontal overflow */
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
     background: #000000 url("../img/background2-3.jpg") center no-repeat;
     background-size: cover;
     overflow: hidden; /* Prevent scrollbars */
     color: white;
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
+
 
 /* Main Content */
 .main-content {
@@ -29,6 +34,7 @@ body {
 
 .main-content-inner {
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px) sepia(50%);
     border-radius: 40px;
     padding: 20px;
     text-align: center;
@@ -39,9 +45,10 @@ body {
 
 .main-content .title {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-family: "Mogra", system-ui;
+    font-weight: 400;
+    font-size: 28px;
+    font-style: normal;
 }
 
 .main-content .message {
@@ -49,11 +56,11 @@ body {
     width: 100%; /* Adjust to fit within container */
     word-wrap: break-word;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
-.message .text-centered{
+.text-centered{
     text-align: center;
+    font-size: 26px;
 }
 
 #cat-button{
@@ -93,16 +100,13 @@ body {
     margin-right: auto;
 }
 
-.cat-image:hover{
-
-}
-
 /* Footer */
 footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
     padding: 20px;
     width: 100%; /* Ensure no horizontal overflow */
     text-align: center;
@@ -119,6 +123,6 @@ footer img {
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 18px;
     margin: 0;
 }
