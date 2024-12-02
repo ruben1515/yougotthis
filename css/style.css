@@ -2,25 +2,24 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    width: 100%;
+    justify-content: space-between; /* Space between header, content, and footer */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Ensure no horizontal overflow */
     margin: 0;
     padding: 0;
+    /*font-family: Arial, sans-serif;*/
     background: #000000 url("../img/background2-3.jpg") center no-repeat;
     background-size: cover;
-    overflow: auto;
+    overflow: auto; /* Prevent scrollbars */
     color: white;
     font-family: "Gamja Flower", sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 600px) {
-    body {
-        font-size: 16px; /* Smaller font size for phones */
-    }
+img {
+    pointer-events: none;
 }
 
 /* Main Content */
@@ -30,88 +29,287 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    flex: 1;
+    flex: 1; /* Take up remaining space between header and footer */
     max-height: calc(100vh - 100px);
-    box-sizing: border-box;
-    max-width: 100%;
-    overflow: hidden;
+    box-sizing: border-box; /* Include padding in width/height calculations */
+    max-width: 100%; /* Prevent content overflow horizontally */
+    overflow: hidden; /* Ensure content stays within boundaries */
 }
 
 .main-content-inner {
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(1px);
-    border-radius: 20px;
-    padding: 15px;
+    backdrop-filter: blur(1px) sepia(50%);
+    border-radius: 40px;
+    padding: 20px;
     text-align: center;
-    max-width: 95%;
-    word-wrap: break-word;
+    max-width: 90%; /* Adjust to prevent horizontal overflow */
+    box-sizing: border-box;
+    overflow-wrap: break-word; /* Wrap long words to prevent horizontal scrolling */
 }
 
-/* Titles and Messages */
 .main-content .title {
     text-align: center;
-    font-family: "Mogra", sans-serif;
-    font-size: 24px;
-}
-
-@media screen and (max-width: 600px) {
-    .main-content .title {
-        font-size: 20px;
-    }
+    font-family: "Mogra", system-ui;
+    font-weight: 400;
+    font-size: 28px;
+    font-style: normal;
 }
 
 .main-content .message {
     text-align: left;
-    width: 100%;
-    font-size: 16px;
+    width: 100%; /* Adjust to fit within container */
+    word-wrap: break-word;
+    line-height: 1.6;
 }
 
-@media screen and (max-width: 600px) {
-    .main-content .message {
-        font-size: 14px;
-    }
-}
-
-.text-centered {
+.text-centered{
     text-align: center;
-    font-size: 20px;
+    font-size: 26px;
 }
 
-@media screen and (max-width: 600px) {
-    .text-centered {
-        font-size: 16px;
-    }
+#cat-button.expanded{
+    -webkit-animation: growAndFadeMult 4s forwards; /* Safari and older Android */
+    animation: growAndFadeMult 4s forwards;
 }
 
-/* Button Styling */
-#cat-button.breathing {
+#cat-button.breathing{
     background-color: transparent;
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
     border: none;
     cursor: pointer;
-    animation: resize 2s infinite ease-in-out;
-    transition: transform 0.2s ease;
-    width: 120px; /* Adjust button size for phones */
-    height: auto;
+    outline: none;
+    animation: resize 2s infinite ease-in-out; /* Apply the animation */
+    transition: background-image 0.2s ease; /* Optional: Add a transition effect for hover */
 }
 
-@media screen and (max-width: 600px) {
-    #cat-button.breathing {
-        width: 100px;
+#cat-button.expanded .bottom-image{
+    will-change: transform;
+    background-color: transparent;
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 999; /* Bring the button to the front */
+    -webkit-animation: growAndFade 4s forwards; /* Safari and older Android */
+    animation: growAndFade 4s forwards;
+    pointer-events: none; /* Ensure no interaction during fade-out */
+}
+
+#cat-button.expanded .top-image{
+    will-change: transform;
+    background-color: transparent;
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 1000; /* Bring the button to the front */
+    -webkit-animation: growAndFadeSmall 4s forwards; /* Safari and older Android */
+    animation: growAndFadeSmall 4s forwards;
+    pointer-events: none; /* Ensure no interaction during fade-out */
+}
+
+#cat-button.expanded .replacement-image{
+    will-change: transform;
+    background-color: transparent;
+    background-size: cover; /* Make the image cover the entire button */
+    background-position: center; /* Center the image inside the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 900; /* Bring the button to the front */
+    -webkit-animation: growAndFadeSmall 4s forwards; /* Safari and older Android */
+    animation: growAndFadeSmall 4s forwards;
+    pointer-events: none; /* Ensure no interaction during fade-out */
+    display: none;
+}
+
+/* Keyframes to animate the size change */
+@keyframes resize {
+    0% {
+        transform: scale(1); /* Original size */
     }
+    50% {
+        transform: scale(1.1); /* Increase size by 1.5x */
+    }
+    100% {
+        transform: scale(1); /* Return to original size */
+    }
+}
+
+@keyframes growAndFadeSmall {
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(2); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(2); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(2); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+/* Add vendor prefixes */
+@-webkit-keyframes growAndFadeSmall { /* For Webkit-based browsers (iOS, older Android) */
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(2); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(2); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(2); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+
+@keyframes growAndFadeMult {
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(2); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(2); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(2); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+/* Add vendor prefixes */
+@-webkit-keyframes growAndFadeMult { /* For Webkit-based browsers (iOS, older Android) */
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(2); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(2); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(2); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+
+@keyframes growAndFade {
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(30); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(30); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(30); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+/* Add vendor prefixes */
+@-webkit-keyframes growAndFade { /* For Webkit-based browsers (iOS, older Android) */
+    0% {
+        transform: scale(1); /* Original size */
+        opacity: 100; /* fade out */
+    }
+    25% {
+        transform: scale(30); /* Increase size by 1.5x */
+        opacity: 100; /* fade out */
+    }
+    75% {
+        transform: scale(30); /* Return to original size */
+        opacity: 100; /* fade out */
+    }100% {
+         transform: scale(30); /* Return to original size */
+         opacity: 0; /* fade out */
+     }
+}
+
+.cat-image {
+    width: 80px; /* Adjust to make the cat image smaller */
+    height: auto;
+    margin-top: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stacked-button {
+    position: relative;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.stacked-button:hover .bottom-image{
+    opacity: 0;
+}
+
+.stacked-button:hover .replacement-image{
+    opacity: 1;
 }
 
 .stacked-button img {
     display: block;
-    width: 100%;
-    max-width: 120px;
+    width: 100px; /* Adjust size as needed */
     height: auto;
     transition: opacity 0.3s ease;
 }
 
-@media screen and (max-width: 600px) {
-    .stacked-button img {
-        max-width: 100px;
-    }
+.stacked-button .top-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Ensures it stays on top */
+}
+
+.stacked-button .bottom-image {
+    position: absolute;
+    z-index: 1; /* Ensures it stays behind */
+}
+
+.stacked-button .replacement-image {
+    z-index: 0; /* Ensures it stays behind */
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent; /* No background so it's invisible */
+    z-index: 1000; /* Ensure it is above everything */
+    pointer-events: none; /* Prevent interaction with the overlay itself */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Footer */
@@ -120,31 +318,25 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    width: 100%;
+    backdrop-filter: blur(1px);
+    padding: 20px;
+    width: 100%; /* Ensure no horizontal overflow */
     text-align: center;
     color: #fff;
-    font-size: 14px;
     box-sizing: border-box;
 }
 
 footer img {
-    width: 50%;
-    max-width: 200px;
+    width: 60%;
+    max-width: 300px; /* Controls max image size */
     height: auto;
+    margin-bottom: 10px;
+
 }
 
 footer p {
-    font-size: 14px;
-}
-
-/* Ensure responsive footer for small screens */
-@media screen and (max-width: 600px) {
-    footer p {
-        font-size: 12px;
-    }
-
-    footer img {
-        width: 60%;
-    }
+    font-size: 18px;
+    margin: 0;
+    position: relative; /* Ensure footer stays part of the stacking context */
+    z-index: 1; /* Lower than the button's z-index */
 }
