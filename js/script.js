@@ -56,5 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     mainContent.innerHTML = `<p>Sorry, de inhoud kon niet worden geladen.</p>`;
                 });
         }, 500); // Adjust delay to match animation timing
+        //TOEVOEGEN OM PAGINA 2 TE LATEN IN FADEN
+        //MISSCHIEN SCHRIJF MANIER GEBRUIKEN ZODAT HET LIJKT ALSOF HET GETYPT WORDT WANNEER HET VERSCHIJNT?
     });
 });
