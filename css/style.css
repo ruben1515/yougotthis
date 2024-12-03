@@ -32,7 +32,9 @@ img {
     flex: 1; /* Take up remaining space between header and footer */
     max-height: calc(100vh - 100px);
     box-sizing: border-box; /* Include padding in width/height calculations */
-    max-width: 100%; /* Prevent content overflow horizontally */
+    max-width: 60%; /* Prevent content overflow horizontally */
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden; /* Ensure content stays within boundaries */
 }
 
@@ -55,7 +57,7 @@ img {
     font-style: normal;
 }
 
-.main-content .message {
+.text-left {
     text-align: left;
     width: 100%; /* Adjust to fit within container */
     word-wrap: break-word;
@@ -64,7 +66,14 @@ img {
 
 .text-centered{
     text-align: center;
+    width: 100%; /* Adjust to fit within container */
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+.important-text{
     font-size: 26px;
+    font-weight: 600;
 }
 
 #cat-button.expanded{
