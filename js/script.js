@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const frontpage = document.getElementById("frontpage-container");
     const overlay = document.getElementById("overlay");
     const mainContent = document.querySelector(".main-content");
-    let arrowleft = document.getElementById("arrowleft");
-    let backbutton = document.getElementById("backbutton");
+    const arrowleft = document.getElementById("arrowleft");
+    const backbutton = document.getElementById("backbutton");
 
     Date.prototype.addDays = function(days) {//function to add days to variables with new Date()
         var date = new Date(this.valueOf());
@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         var selectedday = padNumber();//put the padded number in a variable to use in our file selector
         let yesterday = parseInt(selectedday) - 1;
+        yesterday = yesterday.toString().padStart(3, '0');
         console.log('yesterday ' + yesterday);
         console.log('today ' + selectedday);
         // Clone the button and move it to the overlay
