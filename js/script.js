@@ -7,12 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainContent = document.querySelector(".main-content");
     let arrowleft = document.getElementById("arrowleft");
     let backbutton = document.getElementById("backbutton");
-    let fileExists = false;
 
     Date.prototype.addDays = function(days) {//function to add days to variables with new Date()
         var date = new Date(this.valueOf());
         date.setDate(date.getDate() + days);
         return date;
+    }
+
+    async function checkIfFileExists(url) {
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            return response.ok; // Returns true if the file exists
+        } catch (error) {
+            console.error('Error checking file:', error);
+            return false; // Returns false if there's an error
+        }
     }
 
     start.addEventListener("click", () => {//when we click on the button on the main page
@@ -41,6 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
         clonedButton.classList.remove("breathing");
         start.classList.add("pointer-disabled");
 
+        const fileUrl = './html/import'+yesterday+'.html';
+        checkIfFileExists(fileUrl).then((exists) => {
+            if (exists) {
+                console.log('File exists! Performing action...');
+                yesterday_exists = true;
+                // Perform action if file exists
+            } else {
+                console.log('File does not exist! Performing alternative action...');
+                // Perform alternative action if file doesn't exist
+            }
+        });
+
         setTimeout(() => {
             // Clear existing content after animation
             mainContent.innerHTML = "";
@@ -60,8 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.error("Error loading content:", error);
                     mainContent.innerHTML = `<p>Sorry, de inhoud kon niet worden geladen.</p>`;
                 });
-            arrowleft.classList.remove("hidden");
-            backbutton.classList.remove("pointer-disabled");
+            if(yesterday_exists){
+                arrowleft.classList.remove("hidden");
+                backbutton.classList.remove("pointer-disabled");
+            }
         }, 500); // Adjust delay to match animation timing
         //TOEVOEGEN OM PAGINA 2 TE LATEN IN FADEN
         //MISSCHIEN SCHRIJF MANIER GEBRUIKEN ZODAT HET LIJKT ALSOF HET GETYPT WORDT WANNEER HET VERSCHIJNT?
