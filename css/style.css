@@ -300,28 +300,58 @@ img {
 /* Footer */
 footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Align items vertically */
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(1px);
     padding: 20px;
     width: 100%; /* Ensure no horizontal overflow */
-    text-align: center;
-    color: #fff;
     box-sizing: border-box;
+    color: #fff;
 }
 
-footer img {
-    width: 60%;
-    max-width: 300px; /* Controls max image size */
+footer .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+footer .center-content img {
+    width: 80%;
+    max-width: 300px;
     height: auto;
     margin-bottom: 10px;
-
 }
 
 footer p {
     font-size: 18px;
     margin: 0;
-    position: relative; /* Ensure footer stays part of the stacking context */
-    z-index: 1; /* Lower than the button's z-index */
+}
+
+footer .btn {
+     display: flex; /* Use flexbox for the button */
+     align-items: center; /* Center content vertically */
+     justify-content: center; /* Center content horizontally */
+     width: 50px; /* Optional: Set a fixed width for the button */
+     height: 50px; /* Optional: Set a fixed height for the button */
+     background-color: transparent; /* Transparent background for clarity */
+     border: none; /* Remove any default border */
+     padding: 0; /* Remove default padding */
+     text-decoration: none; /* Remove default link underline */
+     cursor: pointer; /* Add pointer cursor for interactivity */
+ }
+
+footer .btn img {
+    display: block; /* Eliminate inline image spacing */
+    max-width: 100%; /* Ensure the image fits within the button */
+    max-height: 100%; /* Prevent the image from overflowing */
+}
+
+footer .btn.left {
+    margin-left: auto; /* Push the button to the left */
+}
+
+footer .btn.right {
+    margin-right: auto; /* Push the button to the right */
 }
