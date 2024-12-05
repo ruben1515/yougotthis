@@ -355,3 +355,11 @@ footer .btn.left {
 footer .btn.right {
     margin-right: auto; /* Push the button to the right */
 }
+
+.hidden {
+    display: none !important;
+}
+
+.pointer-disabled{
+    pointer-events: none; /* Ensure no interaction during fade-out */
+}
